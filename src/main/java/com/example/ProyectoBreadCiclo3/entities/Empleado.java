@@ -1,4 +1,4 @@
-package com.example.ProyectoBreadCiclo3;
+package com.example.ProyectoBreadCiclo3.entities;
 
 enum EnumRol{
     ADMINISTRADOR,

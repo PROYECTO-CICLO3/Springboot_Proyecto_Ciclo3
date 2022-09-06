@@ -1,4 +1,6 @@
-package com.example.ProyectoBreadCiclo3;
+package com.example.ProyectoBreadCiclo3.entities;
+
+import com.example.ProyectoBreadCiclo3.entities.Empleado;
 
 public class movimientoDinero {
 
