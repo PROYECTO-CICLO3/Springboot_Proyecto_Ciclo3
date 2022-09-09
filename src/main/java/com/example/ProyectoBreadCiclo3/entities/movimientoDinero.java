@@ -1,14 +1,29 @@
 package com.example.ProyectoBreadCiclo3.entities;
 
-import com.example.ProyectoBreadCiclo3.entities.Empleado;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "movimiento_dineros")
 public class movimientoDinero {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
+    @Column
     private int montoMovimiento;
 
+    @Column
     private String conceptoMovimiento;
 
+    @ManyToOne
+    @JoinColumn(name="empleado_id")
     private Empleado empleado;
+
+    @ManyToOne
+    @JoinColumn(name="empresa_id")
+    private Empresa empresa;
+
 
     //CONSTRUCTOR
 
@@ -41,5 +56,21 @@ public class movimientoDinero {
 
     public void setEmpleado(Empleado empleado) {
         this.empleado = empleado;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
 }

@@ -1,21 +1,40 @@
 package com.example.ProyectoBreadCiclo3.entities;
 
+import javax.persistence.*;
+
+
 enum EnumRol{
     ADMINISTRADOR,
     OPERATIVO
 }
 
+@Entity
+@Table(name = "empleados")
 public class Empleado {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column
     private String nombreEmpleado;
-    //Primary key
+
+    //Preguntar si el unique se pone así
+    @Column(unique = true)
     private String correoEmpleado;
 
-    //foreing key?
+    @Column
+    @Enumerated(value = EnumType.STRING)
+    private EnumRol rolEmpleado;
+
+    @ManyToOne
+    @JoinColumn(name="empresa_id")
     private Empresa empresaEmpleado;
 
-    //Se inicializa en el constructor?
-    private EnumRol rolEmpleado;
+    //Preguntar por los atributos del diagrama que dicen update and created, como deben ser y demás
+
+    //Preguntar por las entidades profile
+
 
 
     //CONSTRUCTOR
@@ -62,5 +81,13 @@ public class Empleado {
 
     public void setRolEmpleado(EnumRol rolEmpleado) {
         this.rolEmpleado = rolEmpleado;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
