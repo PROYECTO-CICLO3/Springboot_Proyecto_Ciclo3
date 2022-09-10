@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Table(name = "movimiento_dineros")
 public class movimientoDinero {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column
@@ -22,16 +22,9 @@ public class movimientoDinero {
 
     @ManyToOne
     @JoinColumn(name="empresa_id")
-    private Empresa empresa;
+    private Empresa empresaMovimiento;
 
 
-    //CONSTRUCTOR
-
-    public movimientoDinero(int montoMovimiento, String conceptoMovimiento, Empleado empleado) {
-        this.montoMovimiento = montoMovimiento;
-        this.conceptoMovimiento = conceptoMovimiento;
-        this.empleado = empleado;
-    }
 
     //GETTER
     public int getMontoMovimiento() {
@@ -67,10 +60,10 @@ public class movimientoDinero {
     }
 
     public Empresa getEmpresa() {
-        return empresa;
+        return empresaMovimiento;
     }
 
     public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
+        this.empresaMovimiento = empresa;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.ProyectoBreadCiclo3.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 enum EnumRol{
@@ -13,7 +14,7 @@ enum EnumRol{
 public class Empleado {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column
@@ -24,27 +25,21 @@ public class Empleado {
     private String correoEmpleado;
 
     @Column
-    @Enumerated(value = EnumType.STRING)
+    //Preguntar funcion del campo
+
+    //@Enumerated(value = EnumType.STRING)
     private EnumRol rolEmpleado;
 
     @ManyToOne
     @JoinColumn(name="empresa_id")
     private Empresa empresaEmpleado;
 
+    @OneToMany(mappedBy = "empleado", fetch = FetchType.LAZY)
+    private List<movimientoDinero> movimientoDineros;
+
     //Preguntar por los atributos del diagrama que dicen update and created, como deben ser y demás
 
     //Preguntar por las entidades profile
-
-
-
-    //CONSTRUCTOR
-
-    public Empleado(String nombreEmpleado, String correoEmpleado, Empresa empresaEmpleado, EnumRol rolEmpleado) {
-        this.nombreEmpleado = nombreEmpleado;
-        this.correoEmpleado = correoEmpleado;
-        this.empresaEmpleado = empresaEmpleado;
-        this.rolEmpleado = rolEmpleado;
-    }
 
 
     //GETTER AND SETTERS
@@ -70,7 +65,7 @@ public class Empleado {
         return empresaEmpleado;
     }
 
-    //Poner una condicion que solo puede ser admin u operativo
+
     public void setEmpresaEmpleado(Empresa empresaEmpleado) {
         this.empresaEmpleado = empresaEmpleado;
     }
@@ -89,5 +84,13 @@ public class Empleado {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public List<movimientoDinero> getMovimientoDineros() {
+        return movimientoDineros;
+    }
+
+    public void setMovimientoDineros(List<movimientoDinero> movimientoDineros) {
+        this.movimientoDineros = movimientoDineros;
     }
 }

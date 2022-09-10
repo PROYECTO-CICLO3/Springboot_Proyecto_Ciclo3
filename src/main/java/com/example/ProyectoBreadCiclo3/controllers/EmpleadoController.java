@@ -23,8 +23,23 @@ public class EmpleadoController {
         return this.empleadoService.createEmpleado(emp);
     }
 
-    @RequestMapping("getempleados")
+    @GetMapping("getempleados")
     public ArrayList<Empleado> getEmpleados(){
         return this.empleadoService.selectAll();
+    }
+
+    @GetMapping("getempleado/{id}")
+    public Empleado getEmpleadoById(@PathVariable long id){
+        return this.empleadoService.empleadoById(id);
+    }
+
+    @DeleteMapping("deleteempleado/{id}")
+    public Response deleteEmpleadoById(long id){
+        return this.empleadoService.deleteEmpleadoById(id);
+    }
+
+    @PatchMapping("updateempleado")
+    public Response updateEmpleado(@RequestBody Empleado emp){
+        return this.empleadoService.updateEmpleado(emp);
     }
 }

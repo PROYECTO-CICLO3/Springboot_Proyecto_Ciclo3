@@ -9,7 +9,7 @@ import java.util.List;
 public class Empresa {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(unique = true)
@@ -22,21 +22,13 @@ public class Empresa {
     private int NITEmpresa;
 
     //Preguintar porque no puedo usar Arraylist en estos casos
+    //Preguntar si son necesarios, cuando creo una conexion de empleado con empresa me sale error
+
     @OneToMany(mappedBy = "empresaEmpleado", fetch = FetchType.LAZY)
-    private List<Empleado> empleados;
+    private List<Empleado> empleadosList;
 
-    @OneToMany(mappedBy = "empresa", fetch = FetchType.LAZY)
-    private List<movimientoDinero> movimientoDineros;
-
-
-    //CONSTRUCTOR
-
-    public Empresa(String nombreEmpresa, String direccionEmpresa, int telefonoEmpresa, int NITEmpresa) {
-        this.nombreEmpresa = nombreEmpresa;
-        this.direccionEmpresa = direccionEmpresa;
-        this.telefonoEmpresa = telefonoEmpresa;
-        this.NITEmpresa = NITEmpresa;
-    }
+    @OneToMany(mappedBy = "empresaMovimiento", fetch = FetchType.LAZY)
+    private List<movimientoDinero> movimientoDinerosList;
 
 
     //GETTER AND SETTERS
@@ -81,6 +73,23 @@ public class Empresa {
         this.id = id;
     }
 
+    public List<movimientoDinero> getMovimientoDinerosList() {
+        return movimientoDinerosList;
+    }
+
+    public void setMovimientoDinerosList(List<movimientoDinero> movimientoDinerosList) {
+        this.movimientoDinerosList = movimientoDinerosList;
+    }
+
+    public List<Empleado> getEmpleadosList() {
+        return empleadosList;
+    }
+
+    public void setEmpleadosList(List<Empleado> empleadosList) {
+        this.empleadosList = empleadosList;
+    }
+
+    /*
     public List<Empleado> getEmpleados() {
         return empleados;
     }
@@ -95,5 +104,5 @@ public class Empresa {
 
     public void setMovimientoDineros(ArrayList<movimientoDinero> movimientoDineros) {
         this.movimientoDineros = movimientoDineros;
-    }
+    }*/
 }
