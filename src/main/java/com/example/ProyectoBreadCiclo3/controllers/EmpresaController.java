@@ -40,7 +40,7 @@ public class EmpresaController {
     }
 
     @DeleteMapping("deleteempresa/{id}")
-    public Response deleteEmpresaById(long id){
+    public Response deleteEmpresaById(@PathVariable long id){
         return this.empresaService.deleteEmpresaById(id);
     }
 

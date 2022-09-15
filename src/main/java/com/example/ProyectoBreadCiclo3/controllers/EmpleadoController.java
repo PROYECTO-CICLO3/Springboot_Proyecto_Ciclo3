@@ -34,7 +34,7 @@ public class EmpleadoController {
     }
 
     @DeleteMapping("deleteempleado/{id}")
-    public Response deleteEmpleadoById(long id){
+    public Response deleteEmpleadoById(@PathVariable long id){
         return this.empleadoService.deleteEmpleadoById(id);
     }
 
