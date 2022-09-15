@@ -4,7 +4,7 @@ package com.example.ProyectoBreadCiclo3.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "movimiento_dineros")
+@Table(name = "movimientoDineros")
 public class movimientoDinero {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,9 +16,10 @@ public class movimientoDinero {
     @Column
     private String conceptoMovimiento;
 
-    @ManyToOne
-    @JoinColumn(name="empleado_id")
-    private Empleado empleado;
+
+    //@ManyToOne
+    //@JoinColumn(name="empleado_id")
+    //private Empleado empleadoMovimiento;
 
     @ManyToOne
     @JoinColumn(name="empresa_id")
@@ -43,13 +44,14 @@ public class movimientoDinero {
         this.conceptoMovimiento = conceptoMovimiento;
     }
 
+    /*
     public Empleado getEmpleado() {
-        return empleado;
+        return empleadoMovimiento;
     }
 
     public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
-    }
+        this.empleadoMovimiento = empleado;
+    }*/
 
     public long getId() {
         return id;

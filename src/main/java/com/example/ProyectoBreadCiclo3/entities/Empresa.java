@@ -24,10 +24,12 @@ public class Empresa {
     //Preguintar porque no puedo usar Arraylist en estos casos
     //Preguntar si son necesarios, cuando creo una conexion de empleado con empresa me sale error
 
-    @OneToMany(mappedBy = "empresaEmpleado", fetch = FetchType.LAZY)
-    private List<Empleado> empleadosList;
+    //No logro que haga la conexión de empresa con empleado
+    //@OneToMany(mappedBy = "empresaEmpleado")
+    //private List<Empleado> empleadosList;
 
-    @OneToMany(mappedBy = "empresaMovimiento", fetch = FetchType.LAZY)
+
+    @OneToMany(mappedBy = "empresaMovimiento")
     private List<movimientoDinero> movimientoDinerosList;
 
 
@@ -81,28 +83,14 @@ public class Empresa {
         this.movimientoDinerosList = movimientoDinerosList;
     }
 
+    /*
     public List<Empleado> getEmpleadosList() {
         return empleadosList;
     }
 
     public void setEmpleadosList(List<Empleado> empleadosList) {
         this.empleadosList = empleadosList;
-    }
-
-    /*
-    public List<Empleado> getEmpleados() {
-        return empleados;
-    }
-
-    public void setEmpleados(ArrayList<Empleado> empleados) {
-        this.empleados = empleados;
-    }
-
-    public List<movimientoDinero> getMovimientoDineros() {
-        return movimientoDineros;
-    }
-
-    public void setMovimientoDineros(ArrayList<movimientoDinero> movimientoDineros) {
-        this.movimientoDineros = movimientoDineros;
     }*/
+
+
 }

@@ -34,8 +34,8 @@ public class Empleado {
     @JoinColumn(name="empresa_id")
     private Empresa empresaEmpleado;
 
-    @OneToMany(mappedBy = "empleado", fetch = FetchType.LAZY)
-    private List<movimientoDinero> movimientoDineros;
+    //@OneToMany(mappedBy = "empleadoMovimiento")
+    //private List<movimientoDinero> movimientoDineros;
 
     //Preguntar por los atributos del diagrama que dicen update and created, como deben ser y demás
 
@@ -86,11 +86,12 @@ public class Empleado {
         this.id = id;
     }
 
+    /*
     public List<movimientoDinero> getMovimientoDineros() {
         return movimientoDineros;
     }
 
     public void setMovimientoDineros(List<movimientoDinero> movimientoDineros) {
         this.movimientoDineros = movimientoDineros;
-    }
+    }*/
 }
