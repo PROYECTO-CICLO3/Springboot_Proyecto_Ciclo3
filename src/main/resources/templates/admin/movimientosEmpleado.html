@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{master}" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="container-fluid">
+    <div class="container-fluid">
+
+      <!-- Page Heading -->
+      <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800" th:text="${empleado.nombreEmpleado}"></h1>
+        <a href="/admin/createempleados" class="btn btn-primary">Crear Usuario</a>
+      </div>
+
+      <div class="row table-responsive">
+        <table class="table table-bordered" width="100%">
+          <thead>
+          <th>Monto Movimiento</th>
+          <th>Concepto Movimiento</th>
+
+          </thead>
+
+          <tbody>
+          <tr th:each = "mov : ${movimientos}">
+            <!--<td th:text = "${emp.Id}"></td>-->
+            <td th:text = "${mov.montoMovimiento}"></td>
+            <td th:text = "${mov.conceptoMovimiento}"></td>
+
+            <!--<td>
+              <a th:href="@{/admin/editempleado/{postId}(postId=${emp.Id})}" class="btn btn-xs btn-primary">Editar</a>
+              <a th:href="@{/admin/deleteempleado/{postId}(postId=${emp.Id})}" class="btn btn-xs btn-warning">Eliminar</a>
+            </td>-->
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+</body>
+</html>

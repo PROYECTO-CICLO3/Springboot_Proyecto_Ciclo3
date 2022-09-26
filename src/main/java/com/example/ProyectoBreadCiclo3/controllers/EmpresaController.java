@@ -9,6 +9,7 @@ import com.example.ProyectoBreadCiclo3.services.Response;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 @RestController
@@ -49,7 +50,10 @@ public class EmpresaController {
         return this.empresaService.updateEmpresa(emp);
     }
 
-
+    @GetMapping("getempresaempleado/{id}")
+    public Empresa getEmpresaById(@PathVariable long id){
+        return this.empresaService.getEmpresaIdEmpleado(id);
+    }
 
 
 }

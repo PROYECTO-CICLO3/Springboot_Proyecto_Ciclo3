@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{master}" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="container-fluid">
+    <div class="container-fluid">
+
+      <!-- Page Heading -->
+      <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Gestionar Movimentos de Empleados</h1>
+      </div>
+
+      <div class="row table-responsive">
+        <table class="table table-bordered" width="100%">
+          <thead>
+          <th>Nombres</th>
+          <th>Correo</th>
+          <th>Rol</th>
+          <th>Acciones</th>
+          </thead>
+
+          <tbody>
+          <tr th:each = "emp : ${empleados}">
+            <!--<td th:text = "${emp.Id}"></td>-->
+            <td th:text = "${emp.nombreEmpleado}"></td>
+            <td th:text = "${emp.correoEmpleado}"></td>
+            <td th:text = "${emp.rolEmpleado}"></td>
+            <td>
+              <a th:href="@{/admin/createmovimientos/{postId}(postId=${emp.Id})}" class="btn btn-xs btn-primary">Crear Movimiento</a>
+              <a th:href="@{/admin/movimientosdinero/{postId}(postId=${emp.Id})}" class="btn btn-xs btn-primary">Ver Movimientos</a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+</body>
+</html>

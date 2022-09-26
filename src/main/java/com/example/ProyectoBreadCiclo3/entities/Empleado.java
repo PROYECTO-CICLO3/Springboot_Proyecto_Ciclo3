@@ -1,13 +1,7 @@
 package com.example.ProyectoBreadCiclo3.entities;
 
 import javax.persistence.*;
-import java.util.List;
 
-
-enum EnumRol{
-    ADMINISTRADOR,
-    OPERATIVO
-}
 
 @Entity
 @Table(name = "empleados")
@@ -23,6 +17,9 @@ public class Empleado {
     //Preguntar si el unique se pone así
     @Column(unique = true)
     private String correoEmpleado;
+
+    @Column
+    private String password;
 
     @Column
     //Preguntar funcion del campo
@@ -41,6 +38,17 @@ public class Empleado {
 
     //Preguntar por las entidades profile
 
+    public Empleado(){
+
+    }
+
+    public Empleado(String nombreEmpleado, String correoEmpleado, EnumRol rolEmpleado, Empresa empresaEmpleado) {
+
+        this.nombreEmpleado = nombreEmpleado;
+        this.correoEmpleado = correoEmpleado;
+        this.rolEmpleado = rolEmpleado;
+        this.empresaEmpleado = empresaEmpleado;
+    }
 
     //GETTER AND SETTERS
 
@@ -78,12 +86,21 @@ public class Empleado {
         this.rolEmpleado = rolEmpleado;
     }
 
+
     public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     /*

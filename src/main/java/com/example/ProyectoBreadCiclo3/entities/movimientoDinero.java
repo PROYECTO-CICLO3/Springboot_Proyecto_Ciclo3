@@ -1,6 +1,8 @@
 package com.example.ProyectoBreadCiclo3.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,28 +13,36 @@ public class movimientoDinero {
     private long id;
 
     @Column
-    private int montoMovimiento;
+    private long montoMovimiento;
 
     @Column
     private String conceptoMovimiento;
 
-
     //@ManyToOne
     //@JoinColumn(name="empleado_id")
     //private Empleado empleadoMovimiento;
-
+    //(fetch = FetchType.LAZY, optional = false)
     @ManyToOne
-    @JoinColumn(name="empresa_id")
-    private Empresa empresaMovimiento;
+    @JoinColumn(name="empleado_id")
+    private Empleado empleadoMovimiento;
 
 
+    public movimientoDinero(){
+
+    }
+
+    public movimientoDinero(long montoMovimiento, String conceptoMovimiento, Empleado empleadoMovimiento) {
+        this.montoMovimiento = montoMovimiento;
+        this.conceptoMovimiento = conceptoMovimiento;
+        this.empleadoMovimiento = empleadoMovimiento;
+    }
 
     //GETTER
-    public int getMontoMovimiento() {
+    public long getMontoMovimiento() {
         return montoMovimiento;
     }
 
-    public void setMontoMovimiento(int montoMovimiento) {
+    public void setMontoMovimiento(long montoMovimiento) {
         this.montoMovimiento = montoMovimiento;
     }
 
@@ -44,14 +54,14 @@ public class movimientoDinero {
         this.conceptoMovimiento = conceptoMovimiento;
     }
 
-    /*
-    public Empleado getEmpleado() {
+    public Empleado getEmpleadoMovimiento() {
         return empleadoMovimiento;
     }
 
-    public void setEmpleado(Empleado empleado) {
-        this.empleadoMovimiento = empleado;
-    }*/
+    public void setEmpleadoMovimiento(Empleado empleadoMovimiento) {
+        this.empleadoMovimiento = empleadoMovimiento;
+    }
+
 
     public long getId() {
         return id;
@@ -61,11 +71,5 @@ public class movimientoDinero {
         this.id = id;
     }
 
-    public Empresa getEmpresa() {
-        return empresaMovimiento;
-    }
 
-    public void setEmpresa(Empresa empresa) {
-        this.empresaMovimiento = empresa;
-    }
 }

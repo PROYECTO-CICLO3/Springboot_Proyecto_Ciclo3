@@ -1,11 +1,13 @@
 package com.example.ProyectoBreadCiclo3.controllers;
 
 import com.example.ProyectoBreadCiclo3.entities.Empleado;
+import com.example.ProyectoBreadCiclo3.entities.Empresa;
 import com.example.ProyectoBreadCiclo3.services.EmpleadoService;
 import com.example.ProyectoBreadCiclo3.services.Response;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("empleado")
@@ -42,4 +44,6 @@ public class EmpleadoController {
     public Response updateEmpleado(@RequestBody Empleado emp){
         return this.empleadoService.updateEmpleado(emp);
     }
+
+
 }

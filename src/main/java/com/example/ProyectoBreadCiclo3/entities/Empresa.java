@@ -28,10 +28,20 @@ public class Empresa {
     //@OneToMany(mappedBy = "empresaEmpleado")
     //private List<Empleado> empleadosList;
 
+    //@OneToMany(mappedBy = "empresaMovimiento")
+    //private List<movimientoDinero> movimientoDinerosList;
 
-    @OneToMany(mappedBy = "empresaMovimiento")
-    private List<movimientoDinero> movimientoDinerosList;
+    public Empresa(){
 
+    }
+
+    public Empresa(String nombreEmpresa, String direccionEmpresa, int telefonoEmpresa, int NITEmpresa) {
+        this.nombreEmpresa = nombreEmpresa;
+        this.direccionEmpresa = direccionEmpresa;
+        this.telefonoEmpresa = telefonoEmpresa;
+        this.NITEmpresa = NITEmpresa;
+
+    }
 
     //GETTER AND SETTERS
 
@@ -75,13 +85,14 @@ public class Empresa {
         this.id = id;
     }
 
+    /*
     public List<movimientoDinero> getMovimientoDinerosList() {
         return movimientoDinerosList;
     }
 
     public void setMovimientoDinerosList(List<movimientoDinero> movimientoDinerosList) {
         this.movimientoDinerosList = movimientoDinerosList;
-    }
+    }*/
 
     /*
     public List<Empleado> getEmpleadosList() {

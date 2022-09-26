@@ -7,6 +7,7 @@ import com.example.ProyectoBreadCiclo3.repository.IEmpresaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -93,5 +94,10 @@ public class EmpresaService {
 
         return response;
 
+    }
+
+    public Empresa getEmpresaIdEmpleado(long id){
+
+        return this.empresaRepository.findEmpresaEmpleado(id);
     }
 }
